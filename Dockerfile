@@ -6,15 +6,9 @@ ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get -y update
+RUN apt-get -y update && apt-get install -y chromium chromium-driver
 
-RUN apt-get install -y chromium chromium-driver
-
-RUN pip install cryptography==3.4.6
-
-RUN pip install selenium
-
-RUN pip install requests
+RUN pip install cryptography==3.4.6 && pip install selenium && pip install requests
 
 COPY ./app ./app
 

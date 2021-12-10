@@ -1,5 +1,6 @@
 import config
 import requests
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -38,14 +39,16 @@ inverter_state = WebDriverWait(driver, 5).until(EC.visibility_of_element_located
 date = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[class="c-card-header-timestamp"] cux-card-timestamp')))
 
 battery_percentage_string = "Percentuale batterie: "+battery_percentage.text+"%"
-photovoltaic_measure_string = "Energia da fotovoltaico: "+photovoltaic_measure.text
+photovoltaic_measure_string = "Energia in input da fotovoltaico: "+photovoltaic_measure.text
 battery_measure_string = "Consumo da batterie: "+battery_measure.text
 grid_measure_string = "Consumo da ENEL: "+grid_measure.text
 global_state_string = "Stato globale: "+global_state.text
 inverter_state_string = "Stato inverter: "+inverter_state.text
 date_string = "Data/ora: "+date.text
 
-if battery_percentage_float <= 20.1 or battery_percentage_float >= 79.9:
-    send_msg(battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
-else:
-    send_msg("Batterie tra 20 e 80")
+if battery_percentage_float <= 20.1:
+    send_msg("Batterie quasi scariche!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
+elif battery_percentage_float >= 79.9:
+    send_msg("Batterie quasi piene!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
+
+time.sleep(1800)
