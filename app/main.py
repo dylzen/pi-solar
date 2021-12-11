@@ -47,8 +47,8 @@ inverter_state_string = "Stato inverter: "+inverter_state.text
 date_string = "Data/ora: "+date.text
 
 if battery_percentage_float <= 20.1:
-    send_msg("Batterie quasi scariche!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
+    send_msg("Batterie scariche!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
 elif battery_percentage_float >= 79.9:
-    send_msg("Batterie quasi piene!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
+    send_msg("Batterie piene!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
 
 time.sleep(1800)
