@@ -11,8 +11,8 @@ def send_msg(text):
    token = config.token
    chat_id = config.chatID
    url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
-   response = requests.get(url_req)
-   print(response.json())
+#    response = requests.get(url_req)
+#    print(response.json())
 
 chrome_options = Options()
 chrome_options.add_argument('--no-sandbox')
@@ -50,5 +50,3 @@ if battery_percentage_float <= 20.1:
     send_msg("Batterie scariche!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
 elif battery_percentage_float >= 79.9:
     send_msg("Batterie piene!\n"+battery_percentage_string+"\n"+photovoltaic_measure_string+"\n"+battery_measure_string+"\n"+grid_measure_string+"\n"+global_state_string+"\n"+inverter_state_string+"\n"+date_string)
-
-time.sleep(1800)
