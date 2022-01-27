@@ -23,5 +23,11 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/.env
+**/.aws
+**/.ssh
 README.md
 unt*
+__pycache__
+.gitignore
+config.py
