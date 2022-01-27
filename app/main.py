@@ -48,7 +48,7 @@ date = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_
 
 ## saving strings
 battery_percentage_string = "State Of Charge: "+battery_percentage.text+"%"
-photovoltaic_measure_string = "Fotovoltaic Input: "+photovoltaic_measure.text
+photovoltaic_measure_string = "Photovoltaic Input: "+photovoltaic_measure.text
 grid_measure_string = "Grid Input: "+grid_measure.text
 battery_measure_string = "Battery Output: "+battery_measure.text
 global_state_string = "Global State: "+global_state.text
